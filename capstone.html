@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>LearnPro — Online Courses | Capstone Project</title>
+
+<!-- Google Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Nunito:wght@400;700&display=swap" rel="stylesheet">
+
+<style>
+/* ---------------------------------------- */
+/* ROOT VARIABLES */
+/* ---------------------------------------- */
+:root{
+  --bg:#0f1724;
+  --card:#0b1220;
+  --muted:#98a0b3;
+  --accent:#6c8cff;
+  --accent-2:#7ae582;
+  --surface:#0b1220;
+  --glass: rgba(255,255,255,0.04);
+  --radius:12px;
+  --gap:1.25rem;
+  --max-width:1200px;
+  --ff-base: "Inter", system-ui;
+  --ff-heading: "Nunito", var(--ff-base);
+  --text:#e6edf3;
+}
+
+*{box-sizing:border-box;}
+body{
+  font-family:var(--ff-base);
+  background:#08101b;
+  color:var(--text);
+  margin:0;
+  line-height:1.45;
+}
+
+/* Layout container */
+.container{
+  width:90%;
+  max-width:var(--max-width);
+  margin:0 auto;
+}
+
+/* ---------------------------------------- */
+/* HEADER */
+/* ---------------------------------------- */
+.site-header{
+  background:rgba(255,255,255,0.02);
+  border-bottom:1px solid rgba(255,255,255,0.05);
+  position:sticky;
+  top:0;
+}
+.header-inner{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:1rem 0;
+}
+.primary-nav ul{
+  display:flex;
+  list-style:none;
+  margin:0;
+  padding:0;
+  gap:1rem;
+}
+.primary-nav a{
+  color:var(--text);
+  text-decoration:none;
+  padding:.5rem .75rem;
+  border-radius:6px;
+}
+.primary-nav a:hover{
+  background:var(--glass);
+}
+
+.brand{
+  display:flex;
+  gap:.75rem;
+  align-items:center;
+}
+.site-title{
+  font-family:var(--ff-heading);
+  margin:0;
+}
+
+/* BUTTONS */
+.btn{
+  display:inline-block;
+  padding:.5rem .9rem;
+  text-decoration:none;
+  border-radius:8px;
+  font-weight:600;
+  color:var(--text);
+}
+.btn-primary{
+  background:linear-gradient(90deg,var(--accent),var(--accent-2));
+  color:#05172c;
+}
+.btn-outline{
+  border:1px solid rgba(255,255,255,0.1);
+}
+.btn-sm{
+  padding:.4rem .6rem;
+}
+
+/* ---------------------------------------- */
+/* HERO */
+/* ---------------------------------------- */
+.hero{
+  padding:2.5rem 0;
+}
+.hero-grid{
+  display:grid;
+  grid-template-columns:1fr 400px;
+  gap:1.5rem;
+  align-items:center;
+}
+.hero-title{
+  font-size:2rem;
+  margin:0 0 .5rem;
+  font-family:var(--ff-heading);
+}
+.hero-lead{
+  margin:0 0 1rem;
+  color:var(--muted);
+}
+
+/* ---------------------------------------- */
+/* SECTION */
+/* ---------------------------------------- */
+.section{
+  padding:2.5rem 0;
+}
+.section-header h3{
+  margin:0;
+  font-family:var(--ff-heading);
+}
+.section-header p{
+  margin:.3rem 0 1rem;
+  color:var(--muted);
+}
+
+/* ---------------------------------------- */
+/* CARDS */
+/* ---------------------------------------- */
+.card{
+  background:rgba(255,255,255,0.03);
+  padding:1rem;
+  border-radius:var(--radius);
+  border:1px solid rgba(255,255,255,0.05);
+  box-shadow:0 10px 25px rgba(0,0,0,0.2);
+}
+.card-img{
+  width:100%;
+  height:150px;
+  object-fit:cover;
+  border-radius:8px;
+  margin-bottom:.75rem;
+}
+
+/* ---------------------------------------- */
+/* COURSES */
+/* ---------------------------------------- */
+.courses-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:1rem;
+}
+.card-meta{
+  display:flex;
+  justify-content:space-between;
+  font-size:.85rem;
+  color:var(--muted);
+}
+
+/* ---------------------------------------- */
+/* TESTIMONIALS */
+/* ---------------------------------------- */
+.testimonials{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:1rem;
+}
+.quote{
+  color:var(--muted);
+  font-style:italic;
+}
+
+/* ---------------------------------------- */
+/* PRICING */
+/* ---------------------------------------- */
+.pricing-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:1rem;
+}
+.price{
+  font-size:1.6rem;
+  color:var(--accent);
+  margin:0;
+}
+.pricing-card.featured{
+  transform:translateY(-6px);
+  border:1px solid var(--accent);
+}
+
+/* ---------------------------------------- */
+/* CONTACT */
+/* ---------------------------------------- */
+.contact-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:1rem;
+}
+.contact-form input,
+.contact-form textarea{
+  width:100%;
+  padding:.6rem;
+  margin-top:.4rem;
+  border:1px solid rgba(255,255,255,0.1);
+  background:transparent;
+  color:var(--text);
+  border-radius:8px;
+}
+
+/* ---------------------------------------- */
+/* FOOTER */
+/* ---------------------------------------- */
+.site-footer{
+  margin-top:2rem;
+  padding:1.5rem 0;
+  border-top:1px solid rgba(255,255,255,0.05);
+}
+.footer-grid{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+/* ---------------------------------------- */
+/* RESPONSIVE */
+/* ---------------------------------------- */
+@media(max-width:1024px){
+  .courses-grid{grid-template-columns:repeat(3,1fr);}
+  .testimonials{grid-template-columns:repeat(2,1fr);}
+}
+
+@media(max-width:768px){
+  .hero-grid{grid-template-columns:1fr;}
+  .courses-grid{grid-template-columns:repeat(2,1fr);}
+  .pricing-grid{grid-template-columns:repeat(2,1fr);}
+  .contact-grid{grid-template-columns:1fr;}
+}
+
+@media(max-width:600px){
+  .courses-grid,
+  .pricing-grid,
+  .testimonials{
+    grid-template-columns:1fr;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header class="site-header">
+  <div class="container header-inner">
+    <div class="brand">
+      <h1 class="site-title">LearnPro</h1>
+    </div>
+
+    <nav class="primary-nav">
+      <ul>
+        <li><a href="#courses">Courses</a></li>
+        <li><a href="#testimonials">Students</a></li>
+        <li><a href="#pricing">Plans</a></li>
+        <li><a href="#contact">Join</a></li>
+      </ul>
+    </nav>
+
+    <a class="btn btn-outline" href="#contact">Sign Up</a>
+  </div>
+</header>
+
+
+<main>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="container hero-grid">
+    <div>
+      <h2 class="hero-title">Learn Faster, Grow Smarter</h2>
+      <p class="hero-lead">Short, practical courses created by experts. Flexible, powerful and career-boosting.</p>
+      <a class="btn btn-primary" href="#courses">Browse Courses</a>
+      <a class="btn btn-outline" href="#pricing">See Pricing</a>
+    </div>
+
+    <div>
+      <div class="card">
+        <p><b>Student:</b> Anuroop Singh Arora<br>
+        <b>Roll No:</b> 2501660001</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COURSES -->
+<section id="courses" class="section">
+  <div class="container">
+    <header class="section-header">
+      <h3>Popular Courses</h3>
+      <p>Carefully designed to upskill you quickly.</p>
+    </header>
+
+    <div class="courses-grid">
+
+      <div class="card">
+        <img src="https://via.placeholder.com/300x150" class="card-img">
+        <h4>Full Stack Web Development</h4>
+        <p class="muted">HTML, CSS, JS + Project</p>
+        <div class="card-meta">
+          <span>8 Weeks</span><span>Beginner</span>
+        </div>
+      </div>
+
+      <div class="card">
+        <img src="https://via.placeholder.com/300x150" class="card-img">
+        <h4>Data Analytics</h4>
+        <p class="muted">Python, Pandas, Visuals</p>
+        <div class="card-meta">
+          <span>6 Weeks</span><span>Intermediate</span>
+        </div>
+      </div>
+
+      <div class="card">
+        <img src="https://via.placeholder.com/300x150" class="card-img">
+        <h4>UI / UX Design</h4>
+        <p class="muted">Design fundamentals</p>
+        <div class="card-meta">
+          <span>4 Weeks</span><span>Beginner</span>
+        </div>
+      </div>
+
+      <div class="card">
+        <img src="https://via.placeholder.com/300x150" class="card-img">
+        <h4>Cloud Computing</h4>
+        <p class="muted">AWS / Azure basics</p>
+        <div class="card-meta">
+          <span>5 Weeks</span><span>Beginner</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section id="testimonials" class="section">
+  <div class="container">
+    <header class="section-header">
+      <h3>Learner Feedback</h3>
+    </header>
+
+    <div class="testimonials">
+      <div class="card">
+        <p class="quote">"Amazing course. I got my internship because of this."</p>
+        <p><b>- Riya</b></p>
+      </div>
+
+      <div class="card">
+        <p class="quote">"Crisp, clear and practical. Loved the Data course."</p>
+        <p><b>- Aman</b></p>
+      </div>
+
+      <div class="card">
+        <p class="quote">"Perfect for working professionals."</p>
+        <p><b>- Neha</b></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section id="pricing" class="section">
+  <div class="container">
+    <header class="section-header">
+      <h3>Pricing Plans</h3>
+    </header>
+
+    <div class="pricing-grid">
+
+      <div class="card pricing-card">
+        <h4>Free</h4>
+        <p class="price">₹0/month</p>
+        <ul>
+          <li>Basic Courses</li>
+          <li>Community Support</li>
+        </ul>
+      </div>
+
+      <div class="card pricing-card featured">
+        <h4>Pro</h4>
+        <p class="price">₹499/month</p>
+        <ul>
+          <li>All Courses</li>
+          <li>Mentor Support</li>
+          <li>Certificates</li>
+        </ul>
+      </div>
+
+      <div class="card pricing-card">
+        <h4>Team</h4>
+        <p class="price">₹1999/month</p>
+        <ul>
+          <li>10 Users</li>
+          <li>Analytics</li>
+          <li>Priority Support</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="section">
+  <div class="container contact-grid">
+    
+    <div class="card">
+      <h3>Contact Us</h3>
+      <p>Email: support@learnpro.com</p>
+      <p>Phone: +91 98765 43210</p>
+    </div>
+
+    <form class="card contact-form">
+      <h4>Send a Message</h4>
+      <label>Name</label>
+      <input type="text" required>
+
+      <label>Email</label>
+      <input type="email" required>
+
+      <label>Message</label>
+      <textarea rows="4"></textarea>
+
+      <button class="btn btn-primary" style="margin-top:1rem;">Submit</button>
+    </form>
+
+  </div>
+</section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-grid">
+    <p>© 2025 LearnPro — Capstone Project by <b>Anuroop Singh Arora (2501660001)</b></p>
+  </div>
+</footer>
+
+</body>
+</html>
